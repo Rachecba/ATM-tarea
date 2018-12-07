@@ -24,6 +24,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
     private boolean entradaDisponible= false;
     private boolean noInput=false;
     private String entradaTeclado="";
+    
     public HardwareSwing() {
         initComponents();
     }
@@ -279,12 +280,14 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
     private void boton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton0ActionPerformed
         jActionPerformed(evt);
     }//GEN-LAST:event_boton0ActionPerformed
+   
     private void jActionPerformed(java.awt.event.ActionEvent evt) {                                       
         JButton btn = (JButton) evt.getSource();
+       
         if(this.entradaDisponible){
             this.noInput=false;
             this.entradaDisponible=false;
-            entradaTeclado = btn.getName();
+            entradaTeclado += btn.getName();
             return;
         }
     }                                      

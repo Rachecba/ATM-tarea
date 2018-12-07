@@ -25,7 +25,7 @@ public class ATM
 
    // no-argument ATM constructor initializes instance variables
 
-      public ATM(Screen screen,Keypad keypad, CashDispenser cashDispenser,DepositSlot depositSlot, BankDatabase bankDatabase) 
+   public ATM(Screen screen,Keypad keypad, CashDispenser cashDispenser,DepositSlot depositSlot, BankDatabase bankDatabase) 
    {
       userAuthenticated = false; // user is not authenticated to start
       currentAccountNumber = 0; // no current account number to start
