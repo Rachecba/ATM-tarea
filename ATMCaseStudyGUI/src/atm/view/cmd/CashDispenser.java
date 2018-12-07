@@ -1,5 +1,7 @@
+package atm.view.cmd;
 
-import hardware.ICashDispenser;
+
+import atm.view.ICashDispenser;
 
 // CashDispenser.java
 // Represents the cash dispenser of the ATM

@@ -1,3 +1,6 @@
+
+import atm.view.cmd.Screen;
+
 // Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
 

@@ -1,3 +1,8 @@
+
+import atm.view.cmd.Keypad;
+import atm.view.cmd.DepositSlot;
+import atm.view.cmd.Screen;
+
 // Deposit.java
 // Represents a deposit ATM transaction
 

@@ -1,19 +1,34 @@
+package atm.view.cmd;
 
-import hardware.IDepositSlot;
 
-// DepositSlot.java
-// Represents the deposit slot of the ATM
+import atm.view.IScreen;
 
-public class DepositSlot implements IDepositSlot 
+// Screen.java
+// Represents the screen of the ATM
+
+public class Screen implements IScreen
 {
-   // indicates whether envelope was received (always returns true, 
-   // because this is only a software simulation of a real deposit slot)
+   // displays a message without a carriage return
     @Override
-   public boolean isEnvelopeReceived()
+   public void displayMessage( String message ) 
    {
-      return true; // deposit envelope was received
-   } // end method isEnvelopeReceived
-} // end class DepositSlot
+      System.out.print( message ); 
+   } // end method displayMessage
+
+   // display a message with a carriage return
+    @Override
+   public void displayMessageLine( String message ) 
+   {
+      System.out.println( message );   
+   } // end method displayMessageLine
+
+   // display a dollar amount
+    @Override
+   public void displayDollarAmount( double amount )
+   {
+      System.out.printf( "$%,.2f", amount );   
+   } // end method displayDollarAmount 
+} // end class Screen
 
 
 

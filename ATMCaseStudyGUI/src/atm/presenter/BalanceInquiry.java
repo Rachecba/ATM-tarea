@@ -1,3 +1,6 @@
+
+import atm.view.cmd.Screen;
+
 // BalanceInquiry.java
 // Represents a balance inquiry ATM transaction
 

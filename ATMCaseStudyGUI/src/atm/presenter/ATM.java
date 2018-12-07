@@ -1,3 +1,9 @@
+
+import atm.view.cmd.Keypad;
+import atm.view.cmd.CashDispenser;
+import atm.view.cmd.DepositSlot;
+import atm.view.cmd.Screen;
+
 // ATM.java
 // Represents an automated teller machine
 

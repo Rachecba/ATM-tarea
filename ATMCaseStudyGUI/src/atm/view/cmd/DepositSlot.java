@@ -1,25 +1,21 @@
-// Keypad.java
-// Represents the keypad of the ATM
-import hardware.IKeyPad;
-import java.util.Scanner; // program uses Scanner to obtain user input
+package atm.view.cmd;
 
-public class Keypad implements IKeyPad
+
+import atm.view.IDepositSlot;
+
+// DepositSlot.java
+// Represents the deposit slot of the ATM
+
+public class DepositSlot implements IDepositSlot 
 {
-   private Scanner input; // reads data from the command line
-                         
-   // no-argument constructor initializes the Scanner
-   public Keypad()
-   {
-      input = new Scanner( System.in );    
-   } // end no-argument Keypad constructor
-
-   // return an integer value entered by user 
+   // indicates whether envelope was received (always returns true, 
+   // because this is only a software simulation of a real deposit slot)
     @Override
-   public int getInput()
+   public boolean isEnvelopeReceived()
    {
-      return input.nextInt(); // we assume that user enters an integer  
-   } // end method getInput
-} // end class Keypad  
+      return true; // deposit envelope was received
+   } // end method isEnvelopeReceived
+} // end class DepositSlot
 
 
 
