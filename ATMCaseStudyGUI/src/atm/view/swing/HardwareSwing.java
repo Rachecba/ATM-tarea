@@ -9,6 +9,7 @@ import atm.view.IKeyPad;
 import atm.view.ICashDispenser;
 import atm.view.IDepositSlot;
 import atm.view.IScreen;
+import javax.swing.JButton;
 
 /**
  *
@@ -19,6 +20,10 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
     /**
      * Creates new form HardwareSwing
      */
+    
+    private boolean entradaDisponible= false;
+    private boolean noInput=false;
+    private String entradaTeclado="";
     public HardwareSwing() {
         initComponents();
     }
@@ -60,24 +65,74 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
         jScrollPane1.setViewportView(outputTextArea);
 
         boton1.setText("1");
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
 
         boton7.setText("7");
+        boton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton7ActionPerformed(evt);
+            }
+        });
 
         boton4.setText("4");
+        boton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton4ActionPerformed(evt);
+            }
+        });
 
         boton2.setText("2");
+        boton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton2ActionPerformed(evt);
+            }
+        });
 
         boton3.setText("3");
+        boton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton3ActionPerformed(evt);
+            }
+        });
 
         boton5.setText("5");
+        boton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton5ActionPerformed(evt);
+            }
+        });
 
         boton6.setText("6");
+        boton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton6ActionPerformed(evt);
+            }
+        });
 
         boton8.setText("8");
+        boton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton8ActionPerformed(evt);
+            }
+        });
 
         boton9.setText("9");
+        boton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton9ActionPerformed(evt);
+            }
+        });
 
         boton0.setText("0");
+        boton0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton0ActionPerformed(evt);
+            }
+        });
 
         enter.setText("Enter");
 
@@ -114,30 +169,29 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(boton1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(boton2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(boton3))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(45, 45, 45)
-                                                .addComponent(boton0)))
-                                        .addGap(115, 115, 115)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jLabel2))))
+                                        .addComponent(boton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(boton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(boton3))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(45, 45, 45)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 5, Short.MAX_VALUE)))
+                                        .addComponent(boton0)))
+                                .addGap(115, 115, 115)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel2)))
+                                .addGap(0, 89, Short.MAX_VALUE)))
                         .addGap(29, 29, 29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -185,6 +239,55 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton1ActionPerformed
+
+    private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton2ActionPerformed
+
+    private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton3ActionPerformed
+
+    private void boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton4ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton4ActionPerformed
+
+    private void boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton5ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton5ActionPerformed
+
+    private void boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton6ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton6ActionPerformed
+
+    private void boton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton7ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton7ActionPerformed
+
+    private void boton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton8ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton8ActionPerformed
+
+    private void boton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton9ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton9ActionPerformed
+
+    private void boton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton0ActionPerformed
+        jActionPerformed(evt);
+    }//GEN-LAST:event_boton0ActionPerformed
+    private void jActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        JButton btn = (JButton) evt.getSource();
+        if(this.entradaDisponible){
+            this.noInput=false;
+            this.entradaDisponible=false;
+            entradaTeclado = btn.getName();
+            return;
+        }
+    }                                      
 
     /**
      * @param args the command line arguments

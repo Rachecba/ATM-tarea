@@ -24,17 +24,18 @@ public class ATM
    private static final int EXIT = 4;
 
    // no-argument ATM constructor initializes instance variables
-   public ATM() 
+
+      public ATM(Screen screen,Keypad keypad, CashDispenser cashDispenser,DepositSlot depositSlot, BankDatabase bankDatabase) 
    {
       userAuthenticated = false; // user is not authenticated to start
       currentAccountNumber = 0; // no current account number to start
-      screen = new Screen(); // create screen
-      keypad = new Keypad(); // create keypad 
-      cashDispenser = new CashDispenser(); // create cash dispenser
-      depositSlot = new DepositSlot(); // create deposit slot
-      bankDatabase = new BankDatabase(); // create acct info database
+      this.screen = screen; // create screen
+      this.keypad = keypad; // create keypad 
+      this.cashDispenser = cashDispenser; // create cash dispenser
+      this.depositSlot = depositSlot; // create deposit slot
+      this.bankDatabase = bankDatabase; // create acct info database
    } // end no-argument ATM constructor
-
+      
    // start ATM 
    public void run()
    {

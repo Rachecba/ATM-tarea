@@ -1,13 +1,28 @@
+
+import atm.view.cmd.CashDispenser;
+import atm.view.cmd.DepositSlot;
+import atm.view.cmd.Keypad;
+import atm.view.cmd.Screen;
+
 // ATMCaseStudy.java
 // Driver program for the ATM case study
 
 public class ATMCaseStudy
 {
+   private static Screen screen; // ATM's screen
+   private static Keypad keypad; // ATM's keypad
+   private static  CashDispenser cashDispenser; // ATM's cash dispenser
+   private static DepositSlot depositSlot; // ATM's deposit slot
+   private static BankDatabase bankDatabase; // account information database
    // main method creates and runs the ATM
    public static void main( String[] args )
    {
-      ATM theATM = new ATM();    
-      theATM.run();
+      ATM theATM;    
+//      theATM.run();
+      theATM = new ATM(screen,keypad, cashDispenser, depositSlot, bankDatabase);
+      
+      
+      
    } // end main
 } // end class ATMCaseStudy 
 
