@@ -9,21 +9,22 @@ import atm.view.cmd.Screen;
 
 public class ATMCaseStudy
 {
-   private static Screen screen; // ATM's screen
-   private static Keypad keypad; // ATM's keypad
-   private static  CashDispenser cashDispenser; // ATM's cash dispenser
-   private static DepositSlot depositSlot; // ATM's deposit slot
-   private static BankDatabase bankDatabase; // account information database
-   // main method creates and runs the ATM
-   public static void main( String[] args )
-   {
-      ATM theATM;    
-//      theATM.run();
-      theATM = new ATM(screen,keypad, cashDispenser, depositSlot, bankDatabase);
-      
-      
-      
-   } // end main
+    private static Screen screen; // ATM's screen
+    private static Keypad keypad; // ATM's keypad
+    private static  CashDispenser cashDispenser; // ATM's cash dispenser
+    private static DepositSlot depositSlot; // ATM's deposit slot
+    private static BankDatabase bankDatabase; // account information database
+    
+    public static void main( String[] args )
+    {
+       ATM theATM;
+       theATM = new ATM(screen,keypad, cashDispenser, depositSlot, bankDatabase);
+       theATM.run();
+     
+       
+       
+       
+} // end main
 } // end class ATMCaseStudy 
 
 
