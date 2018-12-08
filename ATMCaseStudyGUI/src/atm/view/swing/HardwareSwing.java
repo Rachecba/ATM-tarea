@@ -16,14 +16,9 @@ import javax.swing.JButton;
  * @author zunigaur
  */
 public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScreen, IDepositSlot, ICashDispenser{
-
-    /**
-     * Creates new form HardwareSwing
-     */
     
-    private boolean entradaDisponible= false;
-    private boolean noInput=false;
-    private String entradaTeclado="";
+    private String input = "";
+    private boolean disponible = false;
     
     public HardwareSwing() {
         initComponents();
@@ -284,11 +279,9 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
     private void jActionPerformed(java.awt.event.ActionEvent evt) {                                       
         JButton btn = (JButton) evt.getSource();
        
-        if(this.entradaDisponible){
-            this.noInput=false;
-            this.entradaDisponible=false;
-            entradaTeclado += btn.getName();
-            return;
+        if(this.disponible){ //pin, cuenta
+            this.input += btn.getText();
+            this.displayMessage(input);
         }
     }                                      
 
@@ -329,17 +322,17 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
 
     @Override
     public int getInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return Integer.getInteger(this.input);
     }
 
     @Override
-    public void displayMessage(String message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void displayMessage(String message) { //atm
+        this.outputTextArea.setText(message);
     }
 
     @Override
-    public void displayMessageLine(String message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void displayMessageLine(String message) { //usuario
+        this.outputTextArea.setText(this.outputTextArea.getText() + "\n" + message);
     }
 
     @Override
