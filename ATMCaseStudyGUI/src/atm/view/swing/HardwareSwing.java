@@ -9,6 +9,7 @@ import atm.view.IKeyPad;
 import atm.view.ICashDispenser;
 import atm.view.IDepositSlot;
 import atm.view.IScreen;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 
 /**
@@ -17,11 +18,16 @@ import javax.swing.JButton;
  */
 public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScreen, IDepositSlot, ICashDispenser{
     
-    private String input = "";
-    private boolean disponible = false;
+   private static Logger logger = Logger.getLogger(HardwareSwing.class.getName());
+   
+   private String inputVal = "";
+   private boolean noInput = true;
+   private boolean printInput = false;
+   private boolean inputChoice = false;
     
     public HardwareSwing() {
         initComponents();
+        this.outputTextArea.setText("");
     }
 
     /**
@@ -152,6 +158,11 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
 
         enter.setText("Enter");
         enter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -229,10 +240,9 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(89, 89, 89)
-                                    .addComponent(jLabel2))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(89, 89, 89)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -252,7 +262,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,15 +323,34 @@ public class HardwareSwing extends  javax.swing.JFrame implements IKeyPad, IScre
     private void boton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton0ActionPerformed
         jActionPerformed(evt);
     }//GEN-LAST:event_boton0ActionPerformed
+
+    private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
+       this.printInput = false;
+       
+       if(!inputVal.isEmpty())
+           noInput = false;
+    }//GEN-LAST:event_enterActionPerformed
    
     private void jActionPerformed(java.awt.event.ActionEvent evt) {                                       
         JButton btn = (JButton) evt.getSource();
        
-        if(this.disponible){ //pin, cuenta
-            this.input += btn.getText();
-            this.displayMessage(input);
+        if(this.inputChoice){
+            inputVal = btn.getName();
+            noInput = false;
+            this.inputChoice = false;
+            return;
         }
-    }                                      
+        
+        inputVal += btn.getName();
+        
+        if(this.printInput){
+            this.outputTextArea.append(btn.getText());
+        }
+        
+        logger.finer(inputVal);
+        }
+                                          
+    
 
     /**
      * @param args the command line arguments
