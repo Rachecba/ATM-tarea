@@ -1,3 +1,5 @@
+package atm.model;  
+
 // BankDatabase.java
 // Represents the bank account information database 
 

@@ -1,12 +1,11 @@
 package atm.view.cmd;
 
 
-import atm.view.IDepositSlot;
 
 // DepositSlot.java
 // Represents the deposit slot of the ATM
 
-public class DepositSlot implements IDepositSlot 
+public class DepositSlot implements atm.view.DepositSlot 
 {
    // indicates whether envelope was received (always returns true, 
    // because this is only a software simulation of a real deposit slot)

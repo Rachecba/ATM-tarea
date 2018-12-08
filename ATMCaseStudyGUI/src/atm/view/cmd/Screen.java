@@ -1,12 +1,10 @@
 package atm.view.cmd;
 
 
-import atm.view.IScreen;
-
 // Screen.java
 // Represents the screen of the ATM
 
-public class Screen implements IScreen
+public class Screen implements atm.view.Screen
 {
    // displays a message without a carriage return
     @Override

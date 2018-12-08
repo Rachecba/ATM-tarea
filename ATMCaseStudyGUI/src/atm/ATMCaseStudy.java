@@ -1,27 +1,34 @@
+package atm;
 
+import atm.model.BankDatabase;
+import atm.presenter.ATM;
 import atm.view.cmd.CashDispenser;
 import atm.view.cmd.DepositSlot;
-import atm.view.cmd.Keypad;
-import atm.view.cmd.Screen;
+import atm.view.swing.HardwareSwing;
+import com.sun.istack.internal.logging.Logger;
 
 // ATMCaseStudy.java
 // Driver program for the ATM case study
 
 public class ATMCaseStudy
 {
-    private static Screen screen; // ATM's screen
-    private static Keypad keypad; // ATM's keypad
-    private static  CashDispenser cashDispenser; // ATM's cash dispenser
-    private static DepositSlot depositSlot; // ATM's deposit slot
-    private static BankDatabase bankDatabase; // account information database
-    
     public static void main( String[] args )
     {
-       ATM theATM;
-       theATM = new ATM(screen,keypad, cashDispenser, depositSlot, bankDatabase);
-       theATM.run();
-     
+//       Screen screen = new Screen();
+//       Keypad keypad = new Keypad();
+       CashDispenser cashDispenser = new CashDispenser();
+       DepositSlot depositSlot = new DepositSlot();
+       BankDatabase bankDatabase = new BankDatabase();
        
+       HardwareSwing view = new HardwareSwing();
+       
+      // Logger.getLogger(string, type);
+       
+       ATM theATM = new ATM(view, view, cashDispenser, depositSlot, bankDatabase);
+       
+       view.setVisible(true);
+     
+       theATM.run();
        
        
 } // end main

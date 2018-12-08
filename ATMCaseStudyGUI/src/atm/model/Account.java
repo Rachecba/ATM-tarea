@@ -1,3 +1,4 @@
+package atm.model;
 // Account.java
 // Represents a bank account
 

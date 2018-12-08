@@ -1,7 +1,9 @@
+package atm.presenter;
 
-import atm.view.cmd.Keypad;
-import atm.view.cmd.DepositSlot;
-import atm.view.cmd.Screen;
+import atm.model.BankDatabase;
+import atm.view.KeyPad;
+import atm.view.DepositSlot;
+import atm.view.Screen;
 
 // Deposit.java
 // Represents a deposit ATM transaction
@@ -9,13 +11,13 @@ import atm.view.cmd.Screen;
 public class Deposit extends Transaction
 {
    private double amount; // amount to deposit
-   private Keypad keypad; // reference to keypad
+   private KeyPad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
 
    // Deposit constructor
    public Deposit( int userAccountNumber, Screen atmScreen, 
-      BankDatabase atmBankDatabase, Keypad atmKeypad, 
+      BankDatabase atmBankDatabase, KeyPad atmKeypad, 
       DepositSlot atmDepositSlot )
    {
       // initialize superclass variables

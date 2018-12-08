@@ -1,7 +1,10 @@
+package atm.presenter;
 
-import atm.view.cmd.Keypad;
-import atm.view.cmd.CashDispenser;
-import atm.view.cmd.Screen;
+import atm.model.BankDatabase;
+import atm.view.KeyPad;
+import atm.view.CashDispenser;
+import atm.view.Screen;
+
 
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
@@ -9,7 +12,7 @@ import atm.view.cmd.Screen;
 public class Withdrawal extends Transaction
 {
    private int amount; // amount to withdraw
-   private Keypad keypad; // reference to keypad
+   private KeyPad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
    // constant corresponding to menu option to cancel
@@ -17,7 +20,7 @@ public class Withdrawal extends Transaction
 
    // Withdrawal constructor
    public Withdrawal( int userAccountNumber, Screen atmScreen, 
-      BankDatabase atmBankDatabase, Keypad atmKeypad, 
+      BankDatabase atmBankDatabase, KeyPad atmKeypad, 
       CashDispenser atmCashDispenser )
    {
       // initialize superclass variables

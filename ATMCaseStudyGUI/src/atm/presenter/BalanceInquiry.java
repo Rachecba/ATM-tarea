@@ -1,5 +1,8 @@
+package atm.presenter;
 
-import atm.view.cmd.Screen;
+import atm.model.BankDatabase;
+import atm.presenter.Transaction;
+import atm.view.Screen;
 
 // BalanceInquiry.java
 // Represents a balance inquiry ATM transaction

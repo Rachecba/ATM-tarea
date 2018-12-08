@@ -10,7 +10,7 @@ package atm.view;
  *
  * @author zunigaur
  */
-public interface ICashDispenser {
+public interface CashDispenser {
 
     // simulates dispensing of specified amount of cash
     void dispenseCash(int amount);

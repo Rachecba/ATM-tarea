@@ -1,5 +1,8 @@
+package atm.presenter;
 
-import atm.view.cmd.Screen;
+
+import atm.model.BankDatabase;
+import atm.view.Screen;
 
 // Transaction.java
 // Abstract superclass Transaction represents an ATM transaction

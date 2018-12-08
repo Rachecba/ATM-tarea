@@ -10,7 +10,7 @@ package atm.view;
  *
  * @author zunigaur
  */
-public interface IScreen {
+public interface Screen {
 
     // display a dollar amount
     void displayDollarAmount(double amount);

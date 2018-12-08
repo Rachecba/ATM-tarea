@@ -1,12 +1,9 @@
 package atm.view.cmd;
 
-
-import atm.view.ICashDispenser;
-
 // CashDispenser.java
 // Represents the cash dispenser of the ATM
 
-public class CashDispenser implements ICashDispenser 
+public class CashDispenser implements atm.view.CashDispenser 
 {
    // the default initial number of bills in the cash dispenser
    private final static int INITIAL_COUNT = 500;

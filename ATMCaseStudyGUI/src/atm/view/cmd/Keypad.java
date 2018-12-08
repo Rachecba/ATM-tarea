@@ -2,10 +2,10 @@ package atm.view.cmd;
 
 // Keypad.java
 // Represents the keypad of the ATM
-import atm.view.IKeyPad;
 import java.util.Scanner; // program uses Scanner to obtain user input
+import atm.view.KeyPad;
 
-public class Keypad implements IKeyPad
+public class Keypad implements KeyPad
 {
    private Scanner input; // reads data from the command line
                          

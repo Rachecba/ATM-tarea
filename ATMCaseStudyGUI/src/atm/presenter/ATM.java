@@ -1,8 +1,6 @@
+package atm.presenter;
 
-import atm.view.cmd.Keypad;
-import atm.view.cmd.CashDispenser;
-import atm.view.cmd.DepositSlot;
-import atm.view.cmd.Screen;
+import atm.model.BankDatabase;
 
 // ATM.java
 // Represents an automated teller machine
@@ -11,11 +9,13 @@ public class ATM
 {
    private boolean userAuthenticated; // whether user is authenticated
    private int currentAccountNumber; // current user's account number
-   private Screen screen; // ATM's screen
-   private Keypad keypad; // ATM's keypad
-   private CashDispenser cashDispenser; // ATM's cash dispenser
-   private DepositSlot depositSlot; // ATM's deposit slot
+   private atm.view.Screen screen; // ATM's screen
+   private atm.view.KeyPad keypad; // ATM's keypad
+   private atm.view.CashDispenser cashDispenser; // ATM's cash dispenser
+   private atm.view.DepositSlot depositSlot; // ATM's deposit slot
    private BankDatabase bankDatabase; // account information database
+   
+   
 
    // constants corresponding to main menu options
    private static final int BALANCE_INQUIRY = 1;
@@ -25,7 +25,7 @@ public class ATM
 
    // no-argument ATM constructor initializes instance variables
 
-   public ATM(Screen screen,Keypad keypad, CashDispenser cashDispenser,DepositSlot depositSlot, BankDatabase bankDatabase) 
+   public ATM(atm.view.Screen screen, atm.view.KeyPad keypad, atm.view.CashDispenser cashDispenser, atm.view.DepositSlot depositSlot, BankDatabase bankDatabase) 
    {
       userAuthenticated = false; // user is not authenticated to start
       currentAccountNumber = 0; // no current account number to start
@@ -43,38 +43,38 @@ public class ATM
       while ( true )
       {
          // loop while user is not yet authenticated
-         while ( !userAuthenticated ) 
+         while ( !this.userAuthenticated ) 
          {
-            screen.displayMessageLine( "\nWelcome!" );       
+            this.screen.displayMessageLine( "\nWelcome!" );       
             authenticateUser(); // authenticate user
          } // end while
          
          performTransactions(); // user is now authenticated 
-         userAuthenticated = false; // reset before next ATM session
-         currentAccountNumber = 0; // reset before next ATM session 
-         screen.displayMessageLine( "\nThank you! Goodbye!" );
+         this.userAuthenticated = false; // reset before next ATM session
+         this.currentAccountNumber = 0; // reset before next ATM session 
+         this.screen.displayMessageLine( "\nThank you! Goodbye!" );
       } // end while   
    } // end method run
 
    // attempts to authenticate user against database
    private void authenticateUser() 
    {
-      screen.displayMessage( "\nPlease enter your account number: " );
-      int accountNumber = keypad.getInput(); // input account number
-      screen.displayMessage( "\nEnter your PIN: " ); // prompt for PIN
-      int pin = keypad.getInput(); // input PIN
+      this.screen.displayMessage( "\nPlease enter your account number: " );
+      int accountNumber = this.keypad.getInput(); // input account number
+      this.screen.displayMessage( "\nEnter your PIN: " ); // prompt for PIN
+      int pin = this.keypad.getInput(); // input PIN
       
       // set userAuthenticated to boolean value returned by database
-      userAuthenticated = 
-         bankDatabase.authenticateUser( accountNumber, pin );
+      this.userAuthenticated = 
+         this.bankDatabase.authenticateUser( accountNumber, pin );
       
       // check whether authentication succeeded
-      if ( userAuthenticated )
+      if ( this.userAuthenticated )
       {
-         currentAccountNumber = accountNumber; // save user's account #
+         this.currentAccountNumber = accountNumber; // save user's account #
       } // end if
       else
-         screen.displayMessageLine( 
+         this.screen.displayMessageLine( 
              "Invalid account number or PIN. Please try again." );
    } // end method authenticateUser
 
@@ -107,11 +107,11 @@ public class ATM
                currentTransaction.execute(); // execute transaction
                break; 
             case EXIT: // user chose to terminate session
-               screen.displayMessageLine( "\nExiting the system..." );
+               this.screen.displayMessageLine( "\nExiting the system..." );
                userExited = true; // this ATM session should end
                break;
             default: // user did not enter an integer from 1-4
-               screen.displayMessageLine( 
+               this.screen.displayMessageLine( 
                   "\nYou did not enter a valid selection. Try again." );
                break;
          } // end switch
@@ -121,13 +121,14 @@ public class ATM
    // display the main menu and return an input selection
    private int displayMainMenu()
    {
-      screen.displayMessageLine( "\nMain menu:" );
-      screen.displayMessageLine( "1 - View my balance" );
-      screen.displayMessageLine( "2 - Withdraw cash" );
-      screen.displayMessageLine( "3 - Deposit funds" );
-      screen.displayMessageLine( "4 - Exit\n" );
-      screen.displayMessage( "Enter a choice: " );
-      return keypad.getInput(); // return user's selection
+      this.screen.displayMessageLine( "\nMain menu:" );
+      this.screen.displayMessageLine( "1 - View my balance" );
+      this.screen.displayMessageLine( "2 - Withdraw cash" );
+      this.screen.displayMessageLine( "3 - Deposit funds" );
+      this.screen.displayMessageLine( "4 - Exit\n" );
+      this.screen.displayMessage( "Enter a choice: " );
+      
+      return this.keypad.getInput(); // return user's selection
    } // end method displayMainMenu
          
    // return object of specified Transaction subclass
@@ -140,15 +141,15 @@ public class ATM
       {
          case BALANCE_INQUIRY: // create new BalanceInquiry transaction
             temp = new BalanceInquiry( 
-               currentAccountNumber, screen, bankDatabase );
+               this.currentAccountNumber, this.screen, this.bankDatabase );
             break;
          case WITHDRAWAL: // create new Withdrawal transaction
-            temp = new Withdrawal( currentAccountNumber, screen, 
-               bankDatabase, keypad, cashDispenser );
+            temp = new Withdrawal( this.currentAccountNumber, this.screen, 
+               this.bankDatabase, this.keypad, this.cashDispenser );
             break; 
          case DEPOSIT: // create new Deposit transaction
-            temp = new Deposit( currentAccountNumber, screen, 
-               bankDatabase, keypad, depositSlot );
+            temp = new Deposit( this.currentAccountNumber, this.screen, 
+               this.bankDatabase, this.keypad, this.depositSlot );
             break;
       } // end switch
 

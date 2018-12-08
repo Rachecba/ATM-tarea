@@ -10,7 +10,7 @@ package atm.view;
  *
  * @author zunigaur
  */
-public interface IKeyPad {
+public interface KeyPad {
 
     // return an integer value entered by user
     int getInput();
