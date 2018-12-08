@@ -40,6 +40,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         outputTextArea = new javax.swing.JTextArea();
@@ -65,6 +66,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
 
         outputTextArea.setColumns(20);
+        outputTextArea.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         outputTextArea.setRows(5);
         outputTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 5));
         jScrollPane1.setViewportView(outputTextArea);
@@ -80,83 +82,83 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
         boton1.setText("1");
         boton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton1.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton2.setText("2");
         boton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton2.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton3.setText("3");
         boton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton3.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton4.setText("4");
         boton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton4.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton5.setText("5");
         boton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton5.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton6.setText("6");
         boton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton6.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton7.setText("7");
         boton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton7.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton8.setText("8");
         boton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton8.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton9.setText("9");
         boton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton9.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
 
         boton0.setText("0");
         boton0.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton0.addActionListener(new java.awt.event.ActionListener(){
-        	public void actionPerformed(java.awt.event.ActionEvent  evt){
-        		HardwareSwing.this.jButtonActionPerformed(evt);
-        	}
+            public void actionPerformed(java.awt.event.ActionEvent  evt){
+                HardwareSwing.this.jButtonActionPerformed(evt);
+            }
         });
-
+        
         enter.setText("Enter");
         enter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         enter.addActionListener(new java.awt.event.ActionListener() {
@@ -296,22 +298,20 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
         JButton btn = (JButton) evt.getSource();
         
         if(this.inputChoice){
-            inputVal = btn.getName();
+            inputVal = btn.getText();
             noInput = false;
             this.inputChoice = false;
             return;
         }
         
-        inputVal += btn.getName();
+        inputVal += btn.getText();
         
         if(this.printInput){
-            this.outputTextArea.append(btn.getName());
+            this.outputTextArea.append(btn.getText());
         }
         
         logger.finer(inputVal);
     }
-    
-    
     
     /**
      * @param args the command line arguments
@@ -358,6 +358,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
               Thread.sleep(50);
           } catch (InterruptedException e){}
       }
+      
       logger.fine(inputVal);
       
       int input = Integer.parseInt(inputVal);
@@ -435,6 +436,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
     private javax.swing.JButton boton7;
     private javax.swing.JButton boton8;
     private javax.swing.JButton boton9;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton enter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
