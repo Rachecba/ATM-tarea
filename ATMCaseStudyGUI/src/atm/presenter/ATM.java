@@ -1,6 +1,11 @@
 package atm.presenter;
 
 import atm.model.BankDatabase;
+import java.util.logging.Logger;
+import atm.view.Screen;
+import atm.view.KeyPad;
+import atm.view.CashDispenser;
+import atm.view.DepositSlot;
 
 // ATM.java
 // Represents an automated teller machine
@@ -9,13 +14,14 @@ public class ATM
 {
    private boolean userAuthenticated; // whether user is authenticated
    private int currentAccountNumber; // current user's account number
-   private atm.view.Screen screen; // ATM's screen
-   private atm.view.KeyPad keypad; // ATM's keypad
-   private atm.view.CashDispenser cashDispenser; // ATM's cash dispenser
-   private atm.view.DepositSlot depositSlot; // ATM's deposit slot
+   private Screen screen; // ATM's screen
+   private KeyPad keypad; // ATM's keypad
+   private CashDispenser cashDispenser; // ATM's cash dispenser
+   private DepositSlot depositSlot; // ATM's deposit slot
    private BankDatabase bankDatabase; // account information database
    
-   
+   private static final String CLASSNAME = ATM.class.getCanonicalName(); 
+   private static final Logger logger = Logger.getLogger(CLASSNAME); 
 
    // constants corresponding to main menu options
    private static final int BALANCE_INQUIRY = 1;
@@ -25,7 +31,7 @@ public class ATM
 
    // no-argument ATM constructor initializes instance variables
 
-   public ATM(atm.view.Screen screen, atm.view.KeyPad keypad, atm.view.CashDispenser cashDispenser, atm.view.DepositSlot depositSlot, BankDatabase bankDatabase) 
+   public ATM(Screen screen, KeyPad keypad, CashDispenser cashDispenser, DepositSlot depositSlot, BankDatabase bankDatabase) 
    {
       userAuthenticated = false; // user is not authenticated to start
       currentAccountNumber = 0; // no current account number to start
@@ -36,6 +42,14 @@ public class ATM
       this.bankDatabase = bankDatabase; // create acct info database
    } // end no-argument ATM constructor
       
+   public void setUserAuthenticated(boolean user){
+        this.userAuthenticated = user;
+   }
+   
+   public void setCurrenAccountNumber(int number){
+       this.currentAccountNumber = number;
+   }
+   
    // start ATM 
    public void run()
    {

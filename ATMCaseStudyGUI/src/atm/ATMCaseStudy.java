@@ -2,10 +2,15 @@ package atm;
 
 import atm.model.BankDatabase;
 import atm.presenter.ATM;
+import atm.view.cmd.Screen;
 import atm.view.cmd.CashDispenser;
 import atm.view.cmd.DepositSlot;
+import atm.view.cmd.Keypad;
 import atm.view.swing.HardwareSwing;
 import com.sun.istack.internal.logging.Logger;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.LogManager;
 
 // ATMCaseStudy.java
 // Driver program for the ATM case study
@@ -14,15 +19,20 @@ public class ATMCaseStudy
 {
     public static void main( String[] args )
     {
-//       Screen screen = new Screen();
-//       Keypad keypad = new Keypad();
+        InputStream inputStream = ATMCaseStudy.class.getResourceAsStream("logging.properties"); //lee el archivo logging.properties
+        try {
+            LogManager.getLogManager().readConfiguration(inputStream);
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+        
+       Screen screen = new Screen();
+       Keypad keypad = new Keypad();
        CashDispenser cashDispenser = new CashDispenser();
        DepositSlot depositSlot = new DepositSlot();
        BankDatabase bankDatabase = new BankDatabase();
        
        HardwareSwing view = new HardwareSwing();
-       
-      // Logger.getLogger(string, type);
        
        ATM theATM = new ATM(view, view, cashDispenser, depositSlot, bankDatabase);
        

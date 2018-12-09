@@ -4,6 +4,7 @@ import atm.model.BankDatabase;
 import atm.view.KeyPad;
 import atm.view.DepositSlot;
 import atm.view.Screen;
+import atm.view.swing.HardwareSwing;
 
 // Deposit.java
 // Represents a deposit ATM transaction
@@ -79,7 +80,8 @@ public class Deposit extends Transaction
 
       // display the prompt
       screen.displayMessage( "\nPlease enter a deposit amount in " + 
-         "CENTS (or 0 to cancel): " );
+         "CENTS (or 0 to cancel): \n" );
+      HardwareSwing.setPrintInput(true);
       int input = keypad.getInput(); // receive input of deposit amount
       
       // check whether the user canceled or entered a valid amount

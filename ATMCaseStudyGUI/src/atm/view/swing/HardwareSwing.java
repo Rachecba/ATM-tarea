@@ -22,12 +22,16 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
    
    private String inputVal = "";
    private boolean noInput = true;
-   private boolean printInput = false;
+   private static boolean printInput = false;
    private boolean inputChoice = false;
     
     public HardwareSwing() {
         initComponents();
         this.outputTextArea.setText("");
+    }
+    
+    public static void setPrintInput(boolean input){
+        HardwareSwing.printInput = input;
     }
 
     /**
@@ -364,6 +368,8 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
       int input = Integer.parseInt(inputVal);
       inputVal = "";
       noInput = true;
+      printInput = false;
+      
       return input;
     }
 
@@ -407,7 +413,7 @@ public class HardwareSwing extends  javax.swing.JFrame implements KeyPad, Screen
 
     @Override
     public void displayDollarAmount(double amount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.outputTextArea.append(amount + "\n");
     }
 
     @Override
